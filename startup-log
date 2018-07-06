@@ -1,0 +1,78 @@
+Creating network "example-voting-app_front-tier" with the default driver
+Creating network "example-voting-app_back-tier" with the default driver
+Creating volume "example-voting-app_db-data" with default driver
+Building vote
+Step 1/7 : FROM python:2.7-alpine
+2.7-alpine: Pulling from library/python
+911c6d0c7995: Pull complete
+17a85618b748: Pull complete
+880358d57a6c: Pull complete
+eeaf1c636ed0: Pull complete
+Digest: sha256:78cacea08bf113aa6799301591939c29580357d3c786461a89180616a2c8c0d6
+Status: Downloaded newer image for python:2.7-alpine
+ ---> c57ed7d143f9
+Step 2/7 : WORKDIR /app
+Removing intermediate container 48c4d5846ad7
+ ---> d5879c89eabe
+Step 3/7 : ADD requirements.txt /app/requirements.txt
+ ---> e5d2cc3b3106
+Step 4/7 : RUN pip install -r requirements.txt
+ ---> Running in 1553b1851f98
+Collecting Flask (from -r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/7f/e7/08578774ed4536d3242b14dacb4696386634607af824ea997202cd0edb4b/Flask-1.0.2-py2.py3-none-any.whl (91kB)
+Collecting Redis (from -r requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/3b/f6/7a76333cf0b9251ecf49efff635015171843d9b977e4ffcf59f9c4428052/redis-2.10.6-py2.py3-none-any.whl (64kB)
+Collecting gunicorn (from -r requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/8c/da/b8dd8deb741bff556db53902d4706774c8e1e67265f69528c14c003644e6/gunicorn-19.9.0-py2.py3-none-any.whl (112kB)
+Collecting Werkzeug>=0.14 (from Flask->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/20/c4/12e3e56473e52375aa29c4764e70d1b8f3efa6682bef8d0aae04fe335243/Werkzeug-0.14.1-py2.py3-none-any.whl (322kB)
+Collecting click>=5.1 (from Flask->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/34/c1/8806f99713ddb993c5366c362b2f908f18269f8d792aff1abfd700775a77/click-6.7-py2.py3-none-any.whl (71kB)
+Collecting itsdangerous>=0.24 (from Flask->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/dc/b4/a60bcdba945c00f6d608d8975131ab3f25b22f2bcfe1dab221165194b2d4/itsdangerous-0.24.tar.gz (46kB)
+Collecting Jinja2>=2.10 (from Flask->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/7f/ff/ae64bacdfc95f27a016a7bed8e8686763ba4d277a78ca76f32659220a731/Jinja2-2.10-py2.py3-none-any.whl (126kB)
+Collecting MarkupSafe>=0.23 (from Jinja2>=2.10->Flask->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/4d/de/32d741db316d8fdb7680822dd37001ef7a448255de9699ab4bfcbdf4172b/MarkupSafe-1.0.tar.gz
+Building wheels for collected packages: itsdangerous, MarkupSafe
+  Running setup.py bdist_wheel for itsdangerous: started
+  Running setup.py bdist_wheel for itsdangerous: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/2c/4a/61/5599631c1554768c6290b08c02c72d7317910374ca602ff1e5
+  Running setup.py bdist_wheel for MarkupSafe: started
+  Running setup.py bdist_wheel for MarkupSafe: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/33/56/20/ebe49a5c612fffe1c5a632146b16596f9e64676768661e4e46
+Successfully built itsdangerous MarkupSafe
+Installing collected packages: Werkzeug, click, itsdangerous, MarkupSafe, Jinja2, Flask, Redis, gunicorn
+Successfully installed Flask-1.0.2 Jinja2-2.10 MarkupSafe-1.0 Redis-2.10.6 Werkzeug-0.14.1 click-6.7 gunicorn-19.9.0 itsdangerous-0.24
+Removing intermediate container 1553b1851f98
+ ---> 0ebc3f7c03e9
+Step 5/7 : ADD . /app
+ ---> 21dbb05d97a7
+Step 6/7 : EXPOSE 80
+ ---> Running in 37d8940a5cfc
+Removing intermediate container 37d8940a5cfc
+ ---> 351038ff6397
+Step 7/7 : CMD ["gunicorn", "app:app", "-b", "0.0.0.0:80", "--log-file", "-", "--access-logfile", "-", "--workers", "4", "--keep-alive", "0"]
+ ---> Running in 4df88df2f173
+Removing intermediate container 4df88df2f173
+ ---> 623a4cc64109
+Successfully built 623a4cc64109
+Successfully tagged example-voting-app_vote:latest
+WARNING: Image for service vote was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
+Building result
+Step 1/11 : FROM node:8.9-alpine
+8.9-alpine: Pulling from library/node
+605ce1bd3f31: Pull complete
+79b85b1676b5: Pull complete
+20865485d0c2: Pull complete
+Digest: sha256:6bb963d58da845cf66a22bc5a48bb8c686f91d30240f0798feb0d61a2832fc46
+Status: Downloaded newer image for node:8.9-alpine
+ ---> 406f227b21f5
+Step 2/11 : RUN mkdir -p /app
+ ---> Running in 1aa490a4c3a9
+Removing intermediate container 1aa490a4c3a9
+ ---> 1b14e4d865ba
+Step 3/11 : WORKDIR /app
+Removing intermediate container 9db8da7fbc25
+ ---> 90068af1d429
+Step 4/11 : RUN npm install -g nodemon
