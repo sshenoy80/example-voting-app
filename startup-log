@@ -76,3 +76,265 @@ Step 3/11 : WORKDIR /app
 Removing intermediate container 9db8da7fbc25
  ---> 90068af1d429
 Step 4/11 : RUN npm install -g nodemon
+ ---> Running in 4b597538e02b
+/usr/local/bin/nodemon -> /usr/local/lib/node_modules/nodemon/bin/nodemon.js
+
+> nodemon@1.17.5 postinstall /usr/local/lib/node_modules/nodemon
+> node bin/postinstall || exit 0
+
+Love nodemon? You can now support the project via the open collective:
+ > https://opencollective.com/nodemon/donate
+
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.4 (node_modules/nodemon/node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.4: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+
++ nodemon@1.17.5
+added 232 packages in 26.877s
+Removing intermediate container 4b597538e02b
+ ---> 094587d6f29c
+Step 5/11 : RUN npm config set registry https://registry.npmjs.org
+ ---> Running in cfea9eca0032
+Removing intermediate container cfea9eca0032
+ ---> c329e9f00ffd
+Step 6/11 : COPY package.json /app/package.json
+ ---> 240cd3cecc83
+Step 7/11 : RUN npm install  && npm ls  && npm cache clean --force  && mv /app/node_modules /node_modules
+ ---> Running in 1721312a2037
+npm WARN notice [SECURITY] debug has the following vulnerability: 1 low. Go here for more details: https://nodesecurity.io/advisories?search=debug&version=2.3.3 - Run `npm i npm@latest -g` to upgrade your npm version, and then `npm audit` to get more info.
+npm WARN notice [SECURITY] debug has the following vulnerability: 1 low. Go here for more details: https://nodesecurity.io/advisories?search=debug&version=2.3.3 - Run `npm i npm@latest -g` to upgrade your npm version, and then `npm audit` to get more info.
+npm WARN notice [SECURITY] debug has the following vulnerability: 1 low. Go here for more details: https://nodesecurity.io/advisories?search=debug&version=2.3.3 - Run `npm i npm@latest -g` to upgrade your npm version, and then `npm audit` to get more info.
+npm WARN notice [SECURITY] debug has the following vulnerability: 1 low. Go here for more details: https://nodesecurity.io/advisories?search=debug&version=2.3.3 - Run `npm i npm@latest -g` to upgrade your npm version, and then `npm audit` to get more info.
+npm WARN notice [SECURITY] debug has the following vulnerability: 1 low. Go here for more details: https://nodesecurity.io/advisories?search=debug&version=2.3.3 - Run `npm i npm@latest -g` to upgrade your npm version, and then `npm audit` to get more info.
+npm WARN notice [SECURITY] debug has the following vulnerability: 1 low. Go here for more details: https://nodesecurity.io/advisories?search=debug&version=2.2.0 - Run `npm i npm@latest -g` to upgrade your npm version, and then `npm audit` to get more info.
+npm WARN notice [SECURITY] parsejson has the following vulnerability: 1 high. Go here for more details: https://nodesecurity.io/advisories?search=parsejson&version=0.0.3 - Run `npm i npm@latest -g` to upgrade your npm version, and then `npm audit` to get more info.
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN result@1.0.0 No description
+npm WARN result@1.0.0 No repository field.
+
+added 128 packages in 16.285s
+result@1.0.0 /app
++-- async@1.5.2
++-- body-parser@1.18.3
+| +-- bytes@3.0.0
+| +-- content-type@1.0.4
+| +-- debug@2.6.9
+| | `-- ms@2.0.0
+| +-- depd@1.1.2
+| +-- http-errors@1.6.3
+| | +-- depd@1.1.2 deduped
+| | +-- inherits@2.0.3
+| | +-- setprototypeof@1.1.0 deduped
+| | `-- statuses@1.5.0
+| +-- iconv-lite@0.4.23
+| | `-- safer-buffer@2.1.2
+| +-- on-finished@2.3.0
+| | `-- ee-first@1.1.1
+| +-- qs@6.5.2
+| +-- raw-body@2.3.3
+| | +-- bytes@3.0.0 deduped
+| | +-- http-errors@1.6.3 deduped
+| | +-- iconv-lite@0.4.23 deduped
+| | `-- unpipe@1.0.0
+| `-- type-is@1.6.16
+|   +-- media-typer@0.3.0
+|   `-- mime-types@2.1.18
+|     `-- mime-db@1.33.0
++-- cookie-parser@1.4.3
+| +-- cookie@0.3.1
+| `-- cookie-signature@1.0.6
++-- express@4.16.3
+| +-- accepts@1.3.5
+| | +-- mime-types@2.1.18 deduped
+| | `-- negotiator@0.6.1
+| +-- array-flatten@1.1.1
+| +-- body-parser@1.18.2
+| | +-- bytes@3.0.0 deduped
+| | +-- content-type@1.0.4 deduped
+| | +-- debug@2.6.9 deduped
+| | +-- depd@1.1.2 deduped
+| | +-- http-errors@1.6.3 deduped
+| | +-- iconv-lite@0.4.19
+| | +-- on-finished@2.3.0 deduped
+| | +-- qs@6.5.1 deduped
+| | +-- raw-body@2.3.2
+| | | +-- bytes@3.0.0 deduped
+| | | +-- http-errors@1.6.2
+| | | | +-- depd@1.1.1
+| | | | +-- inherits@2.0.3 deduped
+| | | | +-- setprototypeof@1.0.3
+| | | | `-- statuses@1.4.0 deduped
+| | | +-- iconv-lite@0.4.19 deduped
+| | | `-- unpipe@1.0.0 deduped
+| | `-- type-is@1.6.16 deduped
+| +-- content-disposition@0.5.2
+| +-- content-type@1.0.4 deduped
+| +-- cookie@0.3.1 deduped
+| +-- cookie-signature@1.0.6 deduped
+| +-- debug@2.6.9 deduped
+| +-- depd@1.1.2 deduped
+| +-- encodeurl@1.0.2
+| +-- escape-html@1.0.3
+| +-- etag@1.8.1
+| +-- finalhandler@1.1.1
+| | +-- debug@2.6.9 deduped
+| | +-- encodeurl@1.0.2 deduped
+| | +-- escape-html@1.0.3 deduped
+| | +-- on-finished@2.3.0 deduped
+| | +-- parseurl@1.3.2 deduped
+| | +-- statuses@1.4.0
+| | `-- unpipe@1.0.0 deduped
+| +-- fresh@0.5.2
+| +-- merge-descriptors@1.0.1
+| +-- methods@1.1.2
+| +-- on-finished@2.3.0 deduped
+| +-- parseurl@1.3.2
+| +-- path-to-regexp@0.1.7
+| +-- proxy-addr@2.0.3
+| | +-- forwarded@0.1.2
+| | `-- ipaddr.js@1.6.0
+| +-- qs@6.5.1
+| +-- range-parser@1.2.0
+| +-- safe-buffer@5.1.1
+| +-- send@0.16.2
+| | +-- debug@2.6.9 deduped
+| | +-- depd@1.1.2 deduped
+| | +-- destroy@1.0.4
+| | +-- encodeurl@1.0.2 deduped
+| | +-- escape-html@1.0.3 deduped
+| | +-- etag@1.8.1 deduped
+| | +-- fresh@0.5.2 deduped
+| | +-- http-errors@1.6.3 deduped
+| | +-- mime@1.4.1
+| | +-- ms@2.0.0 deduped
+| | +-- on-finished@2.3.0 deduped
+| | +-- range-parser@1.2.0 deduped
+| | `-- statuses@1.4.0
+| +-- serve-static@1.13.2
+| | +-- encodeurl@1.0.2 deduped
+| | +-- escape-html@1.0.3 deduped
+| | +-- parseurl@1.3.2 deduped
+| | `-- send@0.16.2 deduped
+| +-- setprototypeof@1.1.0
+| +-- statuses@1.4.0
+| +-- type-is@1.6.16 deduped
+| +-- utils-merge@1.0.1
+| `-- vary@1.1.2
++-- method-override@2.3.10
+| +-- debug@2.6.9 deduped
+| +-- methods@1.1.2 deduped
+| +-- parseurl@1.3.2 deduped
+| `-- vary@1.1.2 deduped
++-- pg@4.5.7
+| +-- buffer-writer@1.0.1
+| +-- generic-pool@2.4.2
+| +-- js-string-escape@1.0.1
+| +-- packet-reader@0.2.0
+| +-- pg-connection-string@0.1.3
+| +-- pg-types@1.13.0
+| | +-- pg-int8@1.0.1
+| | +-- postgres-array@1.0.2
+| | +-- postgres-bytea@1.0.0
+| | +-- postgres-date@1.0.3
+| | `-- postgres-interval@1.1.1
+| |   `-- xtend@4.0.1
+| +-- pgpass@0.0.3
+| | `-- split@0.3.3
+| |   `-- through@2.3.8
+| `-- semver@4.3.6
+`-- socket.io@1.7.4
+  +-- debug@2.3.3
+  | `-- ms@0.7.2
+  +-- engine.io@1.8.5
+  | +-- accepts@1.3.3
+  | | +-- mime-types@2.1.18 deduped
+  | | `-- negotiator@0.6.1 deduped
+  | +-- base64id@1.0.0
+  | +-- cookie@0.3.1 deduped
+  | +-- debug@2.3.3
+  | | `-- ms@0.7.2
+  | +-- engine.io-parser@1.3.2
+  | | +-- after@0.8.2
+  | | +-- arraybuffer.slice@0.0.6
+  | | +-- base64-arraybuffer@0.1.5
+  | | +-- blob@0.0.4
+  | | +-- has-binary@0.1.7 deduped
+  | | `-- wtf-8@1.0.0
+  | `-- ws@1.1.5
+  |   +-- options@0.0.6
+  |   `-- ultron@1.0.2
+  +-- has-binary@0.1.7
+  | `-- isarray@0.0.1
+  +-- object-assign@4.1.0
+  +-- socket.io-adapter@0.5.0
+  | +-- debug@2.3.3
+  | | `-- ms@0.7.2
+  | `-- socket.io-parser@2.3.1 deduped
+  +-- socket.io-client@1.7.4
+  | +-- backo2@1.0.2
+  | +-- component-bind@1.0.0
+  | +-- component-emitter@1.2.1
+  | +-- debug@2.3.3
+  | | `-- ms@0.7.2
+  | +-- engine.io-client@1.8.5
+  | | +-- component-emitter@1.2.1
+  | | +-- component-inherit@0.0.3
+  | | +-- debug@2.3.3
+  | | | `-- ms@0.7.2
+  | | +-- engine.io-parser@1.3.2 deduped
+  | | +-- has-cors@1.1.0
+  | | +-- indexof@0.0.1 deduped
+  | | +-- parsejson@0.0.3
+  | | | `-- better-assert@1.0.2 deduped
+  | | +-- parseqs@0.0.5
+  | | | `-- better-assert@1.0.2 deduped
+  | | +-- parseuri@0.0.5 deduped
+  | | +-- ws@1.1.5 deduped
+  | | +-- xmlhttprequest-ssl@1.5.3
+  | | `-- yeast@0.1.2
+  | +-- has-binary@0.1.7 deduped
+  | +-- indexof@0.0.1
+  | +-- object-component@0.0.3
+  | +-- parseuri@0.0.5
+  | | `-- better-assert@1.0.2
+  | |   `-- callsite@1.0.0
+  | +-- socket.io-parser@2.3.1 deduped
+  | `-- to-array@0.1.4
+  `-- socket.io-parser@2.3.1
+    +-- component-emitter@1.1.2
+    +-- debug@2.2.0
+    | `-- ms@0.7.1
+    +-- isarray@0.0.1 deduped
+    `-- json3@3.3.2
+
+npm WARN using --force I sure hope you know what you are doing.
+Removing intermediate container 1721312a2037
+ ---> b344bf8237bf
+Step 8/11 : COPY . /app
+ ---> b9e74b1fd0b3
+Step 9/11 : ENV PORT 80
+ ---> Running in 3726e703cab3
+Removing intermediate container 3726e703cab3
+ ---> 6f0fd4782135
+Step 10/11 : EXPOSE 80
+ ---> Running in dadcec09df67
+Removing intermediate container dadcec09df67
+ ---> c6000ee1cd5c
+Step 11/11 : CMD ["node", "server.js"]
+ ---> Running in 6fa1dc9abc06
+Removing intermediate container 6fa1dc9abc06
+ ---> 9ae10bf176e4
+Successfully built 9ae10bf176e4
+Successfully tagged example-voting-app_result:latest
+WARNING: Image for service result was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
+Pulling redis (redis:alpine)...
+alpine: Pulling from library/redis
+911c6d0c7995: Already exists
+a0a3d3d691e8: Pull complete
+951f841a7476: Pull complete
+f9fd97919734: Pull complete
+d012398d370e: Pull complete
+5cf98d68740c: Pull complete
+Digest: sha256:eef74f01c5e7ed0d2e56833577e5357158763bdcb0f0fa895607bfd84971b64c
+Status: Downloaded newer image for redis:alpine
+Building worker
+Step 1/5 : FROM microsoft/dotnet:2.0.0-sdk
