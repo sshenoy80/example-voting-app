@@ -338,3 +338,340 @@ Digest: sha256:eef74f01c5e7ed0d2e56833577e5357158763bdcb0f0fa895607bfd84971b64c
 Status: Downloaded newer image for redis:alpine
 Building worker
 Step 1/5 : FROM microsoft/dotnet:2.0.0-sdk
+2.0.0-sdk: Pulling from microsoft/dotnet
+3e17c6eae66c: Downloading [=============================>                     ]  27.08MB/45.13MB
+74d44b20f851: Download complete
+a156217f3fa4: Download complete
+4a1ed13b6faa: Downloading [==================>                                ]  18.34MB/50.02MB
+18842ff6b0bf: Download complete
+e857bd06f538: Waiting
+b800e4c6f9e9: Waiting
+^CGracefully stopping... (press Ctrl+C again to force)
+SDGL16350aba6:example-voting-app sshenoy$ docker-compose up
+Building worker
+Step 1/5 : FROM microsoft/dotnet:2.0.0-sdk
+2.0.0-sdk: Pulling from microsoft/dotnet
+3e17c6eae66c: Downloading [==================================>                ]  30.78MB/45.13MB
+74d44b20f851: Download complete
+a156217f3fa4: Download complete
+4a1ed13b6faa: Downloading [=====================>                             ]  21.33MB/50.02MB
+18842ff6b0bf: Download complete
+e857bd06f538: Downloading [>                                                  ]  2.157MB/137.3MB
+b800e4c6f9e9: Waiting
+06-Jul-2018 21:27:25.026 INFO [Thread-3] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-apr-8080"]
+06-Jul-2018 21:27:25.090 INFO [Thread-3] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-apr-8009"]
+06-Jul-2018 21:27:25.143 INFO [Thread-3] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+3e17c6eae66c: Pull complete
+74d44b20f851: Pull complete
+a156217f3fa4: Pull complete
+4a1ed13b6faa: Pull complete
+18842ff6b0bf: Pull complete
+e857bd06f538: Pull complete
+b800e4c6f9e9: Pull complete
+Digest: sha256:f4ea9cdf980bb9512523a3fb88e30f2b83cce4b0cddd2972bc36685461081e2f
+Status: Downloaded newer image for microsoft/dotnet:2.0.0-sdk
+ ---> fde8197d13f4
+Step 2/5 : WORKDIR /code
+Removing intermediate container ed8f4caa1473
+ ---> 6398a5fb3800
+Step 3/5 : ADD src/Worker /code/src/Worker
+ ---> 0af2a5bb7d2c
+Step 4/5 : RUN dotnet restore -v minimal src/Worker     && dotnet publish -c Release -o "./" "src/Worker/"
+ ---> Running in f7359bab8ba0
+  Restoring packages for /code/src/Worker/Worker.csproj...
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.xml.xdocument/index.json'.
+  An error occurred while sending the request.
+    SSL connect error
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.reflection/index.json'.
+  An error occurred while sending the request.
+    SSL connect error
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.security.cryptography.algorithms/index.json'.
+  An error occurred while sending the request.
+    SSL connect error
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.reflection.emit.lightweight/index.json'.
+  An error occurred while sending the request.
+    SSL connect error
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.io/index.json'.
+  An error occurred while sending the request.
+    SSL connect error
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.io.compression/index.json'.
+  An error occurred while sending the request.
+    SSL connect error
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.io.compression.zipfile/index.json'.
+  An error occurred while sending the request.
+    SSL connect error
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.reflection.extensions/index.json'.
+  The HTTP request to 'GET https://api.nuget.org/v3-flatcontainer/system.reflection.extensions/index.json' has timed out after 100000ms.
+  Retrying 'FindPackagesByIdAsync' for source 'https://api.nuget.org/v3-flatcontainer/system.runtime.handles/index.json'.
+  The HTTP request to 'GET https://api.nuget.org/v3-flatcontainer/system.runtime.handles/index.json' has timed out after 100000ms.
+  Installing Microsoft.NETCore.Windows.ApiSets 1.0.1-rc2-24027.
+  Installing System.Buffers 4.0.0-rc2-24027.
+  Installing runtime.native.System.IO.Compression 4.1.0-rc2-24027.
+  Installing Npgsql 3.1.3.
+  Installing System.Threading.Tasks.Extensions 4.0.0-rc2-24027.
+  Installing System.Diagnostics.DiagnosticSource 4.0.0-rc2-24027.
+  Installing Microsoft.NETCore.Runtime.CoreCLR 1.0.2-rc2-24027.
+  Installing StackExchange.Redis 1.1.604-alpha.
+  Installing Microsoft.NETCore.Runtime.Native 1.0.2-rc2-24027.
+  Installing Microsoft.NETCore.Targets 1.0.1-rc2-24027.
+  Installing System.Security.Cryptography.Csp 4.0.0-rc2-24027.
+  Installing System.IO.FileSystem.Watcher 4.0.0-rc2-24027.
+  Installing System.Security.Cryptography.Cng 4.1.0-rc2-24027.
+  Installing runtime.native.System.Net.Http 4.0.1-rc2-24027.
+  Installing runtime.native.System.Security.Cryptography 4.0.0-rc2-24027.
+  Installing System.Reflection.Emit.ILGeneration 4.0.1-rc2-24027.
+  Installing System.IO.Compression.ZipFile 4.0.1-rc2-24027.
+  Installing System.IO.Compression 4.1.0-rc2-24027.
+  Installing System.Xml.ReaderWriter 4.0.11-rc2-24027.
+  Installing System.Threading.Thread 4.0.0-rc2-24027.
+  Installing System.Runtime.InteropServices.RuntimeInformation 4.0.0-rc2-24027.
+  Installing System.Diagnostics.Contracts 4.0.1-rc2-24027.
+  Installing Microsoft.Win32.Primitives 4.0.1-rc2-24027.
+  Installing System.Text.Encoding.Extensions 4.0.11-rc2-24027.
+  Installing System.Threading.Timer 4.0.1-rc2-24027.
+  Installing System.Xml.XDocument 4.0.11-rc2-24027.
+  Installing System.Reflection.TypeExtensions 4.1.0-rc2-24027.
+  Installing System.Threading 4.0.11-rc2-24027.
+  Installing System.Globalization.Calendars 4.0.1-rc2-24027.
+  Installing System.Runtime 4.1.0-rc2-24027.
+  Installing System.Collections.Concurrent 4.0.12-rc2-24027.
+  Installing System.Net.Http 4.0.1-rc2-24027.
+  Installing System.Text.RegularExpressions 4.0.12-rc2-24027.
+  Installing System.ObjectModel 4.0.12-rc2-24027.
+  Installing System.Globalization.Extensions 4.0.1-rc2-24027.
+  Installing System.Linq 4.1.0-rc2-24027.
+  Installing System.AppContext 4.1.0-rc2-24027.
+  Installing System.Diagnostics.Tools 4.0.1-rc2-24027.
+  Installing System.ComponentModel.TypeConverter 4.0.1-rc2-24027.
+  Installing System.Runtime.Numerics 4.0.1-rc2-24027.
+  Installing Microsoft.NETCore.Runtime 1.0.2-rc2-24027.
+  Installing Microsoft.NETCore.Platforms 1.0.1-rc2-24027.
+  Installing System.Security.Principal.Windows 4.0.0-rc2-24027.
+  Installing System.Reflection.Extensions 4.0.1-rc2-24027.
+  Installing System.Net.Primitives 4.0.11-rc2-24027.
+  Installing System.Threading.Overlapped 4.0.1-rc2-24027.
+  Installing System.Runtime.InteropServices 4.1.0-rc2-24027.
+  Installing runtime.native.System 4.0.0-rc2-24027.
+  Installing System.IO.FileSystem.Primitives 4.0.1-rc2-24027.
+  Installing System.Net.Sockets 4.1.0-rc2-24027.
+  Installing System.Security.Cryptography.Encoding 4.0.0-rc2-24027.
+  Installing System.Net.Security 4.0.0-rc2-24027.
+  Installing System.Security.Cryptography.OpenSsl 4.0.0-rc2-24027.
+  Installing System.Security.Claims 4.0.1-rc2-24027.
+  Installing System.Data.Common 4.0.1-rc2-24027.
+  Installing System.Net.NetworkInformation 4.1.0-rc2-24027.
+  Installing System.Security.Cryptography.Primitives 4.0.0-rc2-24027.
+  Installing runtime.native.System.Net.Security 4.0.1-rc2-24027.
+  Installing System.Security.Principal 4.0.1-rc2-24027.
+  Installing System.Net.NameResolution 4.0.0-rc2-24027.
+  Installing System.Console 4.0.0-rc2-24027.
+  Installing System.IO 4.1.0-rc2-24027.
+  Installing System.Reflection 4.1.0-rc2-24027.
+  Installing System.Threading.ThreadPool 4.0.10-rc2-24027.
+  Installing NETStandard.Library 1.5.0-rc2-24027.
+  Installing System.IO.FileSystem 4.0.1-rc2-24027.
+  Installing System.Runtime.InteropServices.PInvoke 4.0.0-rc2-24027.
+  Installing System.Reflection.Emit 4.0.1-rc2-24027.
+  Installing System.Security.Cryptography.X509Certificates 4.1.0-rc2-24027.
+  Installing System.Reflection.Emit.Lightweight 4.0.1-rc2-24027.
+  Installing System.Runtime.Handles 4.0.1-rc2-24027.
+  Installing System.Collections.NonGeneric 4.0.1-rc2-24027.
+  Installing System.Reflection.Primitives 4.0.1-rc2-24027.
+  Installing System.Security.Cryptography.Algorithms 4.1.0-rc2-24027.
+  Installing System.Text.Encoding 4.0.11-rc2-24027.
+  Installing System.ComponentModel 4.0.1-rc2-24027.
+  Installing System.Threading.Tasks 4.0.11-rc2-24027.
+  Installing System.ComponentModel.Primitives 4.0.1-rc2-24027.
+  Installing System.Diagnostics.Debug 4.0.11-rc2-24027.
+  Installing System.Resources.ResourceManager 4.0.1-rc2-24027.
+  Installing System.Collections 4.0.11-rc2-24027.
+  Installing System.Diagnostics.Tracing 4.1.0-rc2-24027.
+  Installing System.Globalization 4.0.11-rc2-24027.
+  Installing System.Runtime.Extensions 4.1.0-rc2-24027.
+  Generating MSBuild file /code/src/Worker/obj/Worker.csproj.nuget.g.props.
+  Generating MSBuild file /code/src/Worker/obj/Worker.csproj.nuget.g.targets.
+  Restore completed in 1.79 min for /code/src/Worker/Worker.csproj.
+Microsoft (R) Build Engine version 15.3.409.57025 for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Worker -> /code/src/Worker/bin/Release/netcoreapp2.0/Worker.dll
+  Worker -> /code/src/Worker/
+Removing intermediate container f7359bab8ba0
+ ---> 4d93f43c68ce
+Step 5/5 : CMD dotnet src/Worker/Worker.dll
+ ---> Running in d191bbae3e5e
+Removing intermediate container d191bbae3e5e
+ ---> 824f7262b54a
+Successfully built 824f7262b54a
+Successfully tagged example-voting-app_worker:latest
+WARNING: Image for service worker was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
+Pulling db (postgres:9.4)...
+9.4: Pulling from library/postgres
+683abbb4ea60: Pull complete
+c5856e38168a: Pull complete
+c3e6f1ceebb0: Pull complete
+3303bcd00128: Pull complete
+ea95ff44bf6e: Pull complete
+ea3f31f1e620: Pull complete
+234873881fb2: Pull complete
+f020aa822d21: Pull complete
+0e77c0aafea5: Pull complete
+479a275fbb5c: Pull complete
+48f3934af948: Pull complete
+3c2c3949cbc8: Pull complete
+7a63bc65492c: Pull complete
+1937c7919aa9: Pull complete
+Digest: sha256:2c18d832699e720dfd8daef5ab13b662a5397a8ef46798270dd360cda2915fe3
+Status: Downloaded newer image for postgres:9.4
+Creating example-voting-app_vote_1   ... done
+Creating redis                       ... done
+Creating example-voting-app_result_1 ... done
+Creating db                          ... done
+Creating example-voting-app_worker_1 ... done
+Attaching to db, redis, example-voting-app_vote_1, example-voting-app_result_1, example-voting-app_worker_1
+db        | The files belonging to this database system will be owned by user "postgres".
+db        | This user must also own the server process.
+db        |
+db        | The database cluster will be initialized with locale "en_US.utf8".
+db        | The default database encoding has accordingly been set to "UTF8".
+db        | The default text search configuration will be set to "english".
+db        |
+db        | Data page checksums are disabled.
+db        |
+db        | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+db        | creating subdirectories ... ok
+db        | selecting default max_connections ... 100
+db        | selecting default shared_buffers ... 128MB
+db        | selecting dynamic shared memory implementation ... posix
+db        | creating configuration files ... ok
+db        | creating template1 database in /var/lib/postgresql/data/base/1 ... ok
+redis     | 1:C 06 Jul 22:02:28.400 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+redis     | 1:C 06 Jul 22:02:28.400 # Redis version=4.0.10, bits=64, commit=00000000, modified=0, pid=1, just started
+redis     | 1:C 06 Jul 22:02:28.400 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+db        | initializing pg_authid ... ok
+db        | initializing dependencies ... ok
+redis     | 1:M 06 Jul 22:02:28.403 * Running mode=standalone, port=6379.
+redis     | 1:M 06 Jul 22:02:28.403 # WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.
+redis     | 1:M 06 Jul 22:02:28.403 # Server initialized
+db        | creating system views ... ok
+db        | loading system objects' descriptions ... ok
+redis     | 1:M 06 Jul 22:02:28.403 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+redis     | 1:M 06 Jul 22:02:28.403 * Ready to accept connections
+db        | creating collations ... ok
+db        | creating conversions ... ok
+db        | creating dictionaries ... ok
+db        | setting privileges on built-in objects ... ok
+db        | creating information schema ... ok
+db        | loading PL/pgSQL server-side language ... ok
+db        | vacuuming database template1 ... ok
+db        | copying template1 to template0 ... ok
+db        | copying template1 to postgres ... ok
+vote_1    |  * Serving Flask app "app" (lazy loading)
+vote_1    |  * Environment: production
+vote_1    |    WARNING: Do not use the development server in a production environment.
+vote_1    |    Use a production WSGI server instead.
+vote_1    |  * Debug mode: on
+vote_1    |  * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+vote_1    |  * Restarting with stat
+db        | syncing data to disk ...
+db        | WARNING: enabling "trust" authentication for local connections
+db        | You can change this by editing pg_hba.conf or using the option -A, or
+db        | --auth-local and --auth-host, the next time you run initdb.
+db        | ok
+db        |
+db        | Success. You can now start the database server using:
+db        |
+db        |     postgres -D /var/lib/postgresql/data
+db        | or
+db        |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+db        |
+db        | ****************************************************
+db        | WARNING: No password has been set for the database.
+db        |          This will allow anyone with access to the
+db        |          Postgres port to access your database. In
+db        |          Docker's default configuration, this is
+db        |          effectively any other container on the same
+db        |          system.
+db        |
+db        |          Use "-e POSTGRES_PASSWORD=password" to set
+db        |          it in "docker run".
+db        | ****************************************************
+db        | waiting for server to start....LOG:  database system was shut down at 2018-07-06 22:02:28 UTC
+db        | LOG:  MultiXact member wraparound protections are now enabled
+db        | LOG:  database system is ready to accept connections
+db        | LOG:  autovacuum launcher started
+vote_1    |  * Debugger is active!
+vote_1    |  * Debugger PIN: 254-476-186
+worker_1  | Waiting for db
+result_1  | [nodemon] 1.17.5
+result_1  | [nodemon] to restart at any time, enter `rs`
+result_1  | [nodemon] watching: *.*
+result_1  | [nodemon] starting `node server.js`
+db        |  done
+db        | server started
+result_1  | Fri, 06 Jul 2018 22:02:32 GMT body-parser deprecated bodyParser: use individual json/urlencoded middlewares at server.js:68:9
+result_1  | Fri, 06 Jul 2018 22:02:32 GMT body-parser deprecated undefined extended: provide extended option at ../node_modules/body-parser/index.js:105:29
+result_1  | App running on port 80
+result_1  | Waiting for db
+db        | ALTER ROLE
+db        |
+db        |
+db        | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+db        |
+db        | LOG:  received fast shutdown request
+db        | LOG:  aborting any active transactions
+db        | waiting for server to shut down....LOG:  autovacuum launcher shutting down
+db        | LOG:  shutting down
+db        | LOG:  database system is shut down
+worker_1  | Waiting for db
+db        |  done
+db        | server stopped
+result_1  | Waiting for db
+db        |
+db        | PostgreSQL init process complete; ready for start up.
+db        |
+db        | LOG:  database system was shut down at 2018-07-06 22:02:32 UTC
+db        | LOG:  MultiXact member wraparound protections are now enabled
+db        | LOG:  database system is ready to accept connections
+db        | LOG:  autovacuum launcher started
+worker_1  | Connected to db
+result_1  | Connected to db
+db        | ERROR:  relation "votes" does not exist at character 38
+db        | STATEMENT:  SELECT vote, COUNT(id) AS count FROM votes GROUP BY vote
+result_1  | Error performing query: error: relation "votes" does not exist
+worker_1  | Connecting to redis
+worker_1  | Found redis at 172.20.0.4
+vote_1    | 172.20.0.1 - - [06/Jul/2018 22:14:15] "GET / HTTP/1.1" 200 -
+vote_1    | 172.20.0.1 - - [06/Jul/2018 22:14:15] "GET /static/stylesheets/style.css HTTP/1.1" 200 -
+vote_1    | 172.20.0.1 - - [06/Jul/2018 22:14:29] "POST / HTTP/1.1" 200 -
+worker_1  | Processing vote for 'a' by '9b9146006693897a'
+vote_1    | 172.20.0.1 - - [06/Jul/2018 22:14:39] "POST / HTTP/1.1" 200 -
+worker_1  | Processing vote for 'b' by '9b9146006693897a'
+db        | ERROR:  duplicate key value violates unique constraint "votes_id_key"
+db        | DETAIL:  Key (id)=(9b9146006693897a) already exists.
+db        | STATEMENT:  INSERT INTO votes (id, vote) VALUES ($1, $2)
+vote_1    | 172.20.0.1 - - [06/Jul/2018 22:14:43] "POST / HTTP/1.1" 200 -
+worker_1  | Processing vote for 'a' by '9b9146006693897a'
+db        | ERROR:  duplicate key value violates unique constraint "votes_id_key"
+db        | DETAIL:  Key (id)=(9b9146006693897a) already exists.
+db        | STATEMENT:  INSERT INTO votes (id, vote) VALUES ($1, $2)
+vote_1    | 172.20.0.1 - - [06/Jul/2018 22:14:47] "POST / HTTP/1.1" 200 -
+worker_1  | Processing vote for 'b' by '9b9146006693897a'
+db        | ERROR:  duplicate key value violates unique constraint "votes_id_key"
+db        | DETAIL:  Key (id)=(9b9146006693897a) already exists.
+db        | STATEMENT:  INSERT INTO votes (id, vote) VALUES ($1, $2)
+vote_1    | 172.20.0.1 - - [06/Jul/2018 22:14:50] "POST / HTTP/1.1" 200 -
+worker_1  | Processing vote for 'a' by '9b9146006693897a'
+db        | ERROR:  duplicate key value violates unique constraint "votes_id_key"
+db        | DETAIL:  Key (id)=(9b9146006693897a) already exists.
+db        | STATEMENT:  INSERT INTO votes (id, vote) VALUES ($1, $2)
+worker_1  | Processing vote for 'b' by '9b9146006693897a'
+db        | ERROR:  duplicate key value violates unique constraint "votes_id_key"
+db        | DETAIL:  Key (id)=(9b9146006693897a) already exists.
+db        | STATEMENT:  INSERT INTO votes (id, vote) VALUES ($1, $2)
+vote_1    | 172.20.0.1 - - [06/Jul/2018 22:14:54] "POST / HTTP/1.1" 200 -
+vote_1    | 172.20.0.1 - - [06/Jul/2018 22:26:49] "POST / HTTP/1.1" 200 -
+worker_1  | Processing vote for 'a' by '9b9146006693897a'
+db        | ERROR:  duplicate key value violates unique constraint "votes_id_key"
+db        | DETAIL:  Key (id)=(9b9146006693897a) already exists.
+db        | STATEMENT:  INSERT INTO votes (id, vote) VALUES ($1, $2)
